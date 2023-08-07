@@ -77,7 +77,7 @@ public class MockCatalogReaderSimple extends MockCatalogReader {
   }
 
   private void registerTableEmp(MockTable empTable, Fixture fixture) {
-    empTable.addColumn("EMPNO", fixture.intType, true);
+    empTable.addColumn("EMPNO", fixture.intTypeNull, true);
     empTable.addColumn("ENAME", fixture.varchar20Type);
     empTable.addColumn("JOB", fixture.varchar10Type);
     empTable.addColumn("MGR", fixture.intTypeNull);
@@ -136,7 +136,7 @@ public class MockCatalogReaderSimple extends MockCatalogReader {
 
   private void registerTableDept(MockSchema salesSchema, Fixture fixture) {
     MockTable deptTable = MockTable.create(this, salesSchema, "DEPT", false, 4);
-    deptTable.addColumn("DEPTNO", fixture.intType, true);
+    deptTable.addColumn("DEPTNO", fixture.intTypeNull, true);
     deptTable.addColumn("NAME", fixture.varchar10Type);
     registerTable(deptTable);
   }

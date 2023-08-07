@@ -7998,4 +7998,17 @@ class RelOptRulesTest extends RelOptTestBase {
         .check();
   }
 
+
+  @Test void testDecorrelateIsNotDistinctFrom() {
+    final String sql = "select EMPNO\n"
+        + "from emp\n"
+        + "where EXISTS (select DEPTNO from dept where emp.EMPNO is not DISTINCT from dept.DEPTNO)";
+
+    sql(sql)
+        .withLateDecorrelate(true)
+        .withExpand(true)
+        .withRule()
+        .check();
+  }
+
 }

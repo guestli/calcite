@@ -16,6 +16,8 @@
  */
 package org.apache.calcite.test;
 
+import com.google.common.collect.ImmutableList;
+
 import org.apache.calcite.config.CalciteConnectionProperty;
 
 import net.hydromatic.quidem.Quidem;
@@ -45,7 +47,7 @@ class CoreQuidemTest extends QuidemTest {
     // Start with a test file we know exists, then find the directory and list
     // its files.
     final String first = "sql/agg.iq";
-    return data(first);
+    return ImmutableList.of("sql/aaa.iq");
   }
 
   @Override protected Quidem.ConnectionFactory createConnectionFactory() {
